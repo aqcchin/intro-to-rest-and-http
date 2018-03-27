@@ -1,16 +1,16 @@
 var helpers = require('./helpers');
 
-var cityCount = 1;
-var restaurantCount = 1;
+var cityCount = 0;
+var restaurantCount = 0;
 
 var cities = [];
 var restaurants = [];
 
 var cityActions = {
-  'GET': function(request, response) {
+  GET: function(request, response) {
     helpers.sendResponse(response, { data: cities });
   },
-  'POST': function(request, response) {
+  POST: function(request, response) {
     helpers.collectData(request, function(city) {
       cityCount += 1;
       city.id = cityCount;
@@ -21,10 +21,10 @@ var cityActions = {
 };
 
 var restaurantActions = {
-  'GET': function(request, response) {
+  GET: function(request, response) {
     helpers.sendResponse(response, { data: restaurants });
   },
-  'POST': function(request, response) {
+  POST: function(request, response) {
     helpers.collectData(request, function(restaurant) {
       restaurantCount += 1;
       restaurant.id = restaurantCount;

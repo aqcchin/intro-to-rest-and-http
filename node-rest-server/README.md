@@ -3,14 +3,15 @@
 ## Table of Contents
 
 1.  [Overview](#overview)
+1.  [Setup](#setup)
 1.  [Prerequisite Technologies](#prerequisite-technologies)
 1.  [Postman](#postman)
 1.  [API Specification](#api-specification)
 1.  [Node.js](#nodejs)
 1.  [What is it?](#what-is-it)
+1.  [npm](#npm)
 1.  [Node.js Basics](#nodejs-basics)
 1.  [How to Create a Server](#how-to-create-a-server)
-1.  [npm](#npm)
 
 ## Overview
 
@@ -24,7 +25,17 @@ There will be no front-end for this application. You may be wondering, "how am I
 
 Use the tests to guide your implementation. Working through the tests in order will allow you to build up to a working implementation of this REST server.
 
-Once you have completed the exercise, take a moment to read through the README for Server-Side Concepts and REST as you will likely find that you have a better understanding of the concepts discussed given that you just completed an exercise putting the concepts into practice.
+Once you have completed the exercise, take a moment to read through the README for Server-Side Concepts and REST a second time as you will likely find that you have a better understanding of the concepts discussed given that you just completed an exercise putting the concepts into practice.
+
+#### Setup
+
+_[Back to Top](#table-of-contents)_
+
+Run in terminal: `npm install`
+To start server using `nodemon`: `npm run start:dev`
+To run tests: `npm test`
+
+**Be sure your server is running when you run your tests. Note that not all tests have been implemented. They are a work-in-progress.**
 
 ## Prerequisite Technologies
 
@@ -154,6 +165,20 @@ To illustrate further, JavaScript that runs in the browser allows you to manipul
 JavaScript that runs on the server allows you to access files, write to databases, [open up ports](#how-to-create-a-server), [create servers](#how-to-create-a-server), etc.
 
 Just as JavaScript that runs in the browser is event-driven, so too is Node. This means that we retain all of the advantages of asynchronous non-blocking event-driven code on the server.
+
+#### npm
+
+_[Back to Top](#table-of-contents)_
+
+`npm` is package manager that is built into Node. It is used to manage dependencies. Although it's intuitive to assume that `npm` stands for `node package manager`, this is not the case. The foundation maintains that there is formal meaning behind the term `npm`.
+
+One of the best features of `npm` is the ability to create scripts to automate certain tasks.
+
+This exercise comes with a few scripts already. Take a moment to understand them.
+
+Know that the start and test scripts can simply be run by entering `npm start` and `npm test` in the terminal, respectively. Any custom scripts that you write must include the `run` keyword e.g. `npm run lint` or `npm run build`.
+
+`npm install` installs the dependencies listed in the `package.json`. `npm install _some-library_` installs a package. Adding the `--save-dev` flag saves it as a `devDependency`.
 
 #### Node.js Basics
 
@@ -325,9 +350,3 @@ Note that within the body of the `request-handler`, we are doing some work with 
 1.  Indicating that we are done servicing the request and sending a response back to whichever client initiated the request.
 
 After the last line of the code block runs, we will be able to make all sorts of requests to `http://localhost:1337`.
-
-## npm
-
-_[Back to Top](#table-of-contents)_
-
-<!-- need to explain what npm is and how to use it -->
