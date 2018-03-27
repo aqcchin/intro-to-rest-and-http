@@ -25,6 +25,8 @@ There will be no front-end for this application. You may be wondering, "how am I
 
 Use the tests to guide your implementation. Working through the tests in order will allow you to build up to a working implementation of this REST server.
 
+You are encouraged to modularize your code. In particular, consider breaking up your codebase into separate files. You might have a file for your helper functions, a file for your request handlers, and file (given) for your server.
+
 Once you have completed the exercise, take a moment to read through the README for Server-Side Concepts and REST a second time as you will likely find that you have a better understanding of the concepts discussed given that you just completed an exercise putting the concepts into practice.
 
 #### Setup
