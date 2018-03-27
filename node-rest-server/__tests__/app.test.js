@@ -1,8 +1,8 @@
 var request = require('request');
 
 describe('My RESTful API', () => {
-  const CITY_ENDPOINT = 'http://localhost:1337/api/location/city';
-  const RESTAURANT_ENDPOINT = 'http://localhost:1337/api/location/restaurant';
+  const CITY_ENDPOINT = 'http://localhost:1337/api/locations/cities';
+  const RESTAURANT_ENDPOINT = 'http://localhost:1337/api/locations/restaurants';
 
   test('should respond to requests to /api/locations/cities with stringified JSON.', () => {
     request(CITY_ENDPOINT, function(error, response, body) {
@@ -36,10 +36,11 @@ describe('My RESTful API', () => {
 
   test('should respond to GET requests to /api/locations/cities with an object containing a `data` array of all the cities.', () => {
     request(CITY_ENDPOINT, function(error, response, body) {
-      var data = JSON.parse(body);
-      expect(Array.isArray(data)).toBe(true);
+      var parsedBody = JSON.parse(body);
+      expect(Array.isArray(parsedBody.data) && response.request.path === '/api/locations/cities').toBe(true);
     });
   });
+
   // test('should respond to POST requests to /api/locations/cities with a 201 status code if sending a city object that contains all required properties.', () => {});
   // test('should respond to POST requests to /api/locations/cities with a 400 status code if sending a city object that DOES NOT contain all required properties.', () => {});
   // test('should respond to POST requests to /api/locations/cities with the city object that was created.', () => {});
