@@ -19,9 +19,9 @@ _[Back to Top](#table-of-contents)_
 
 We are going to build a RESTful API using Node.js.
 
-Our RESTful API will expose an interface that allows us to retrieve, send, modify, and delete data related to restaurants and cities. See [API Specification](#api-specification) for more detailed instructions. We will be applying what we learned about REST and HTTP throughout this exercise.
+Our RESTful API will expose an interface that allows us to retrieve, send, modify, and delete data related to restaurants and cities. See [API Specification](#api-specification) for more detailed instructions. We will be applying what we learned about REST and HTTP throughout this exercise. We will be communicating using JSON as indicated by the `Content-Type` header that's given to you as part of the starter code.
 
-There will be no front-end for this application. You may be wondering, "how am I to use my API then?" You will use Postman to interrogate your server. See [Prerequisite Technologies](#prerequisite-technologies) for further explanation.
+There will be no front-end for this application. You may be wondering, "how am I to use my API then?" You will use Postman to interrogate your server. See [Postman](#postman) for further explanation.
 
 Use the tests to guide your implementation. Working through the tests in order will allow you to build up to a working implementation of this REST server.
 
@@ -45,13 +45,27 @@ _[Back to Top](#table-of-contents)_
 * [npm version 5.6.0](https://docs.npmjs.com/) (comes installed with Node)
 * [Postman](https://www.getpostman.com/)
 
-Note that we will not be using a web application framework for this exercise i.e. you are to implement this API without express.js, hapi.js, koa.js, etc.
+Ensure that all of the above have been downloaded/installed. Note that we will not be using a web application framework for this exercise i.e. you are to implement this API without express.js, hapi.js, koa.js, etc.
 
 #### Postman
 
 _[Back to Top](#table-of-contents)_
 
-<!-- need to explain how to use postman -->
+Below is a series of screenshots meant to illustrate how to use Postman.
+
+Note that you are able to set an HTTP Action Verb, a URL, headers, and other information to be sent along with the request.
+
+When you're ready, you can click "Send" to send the request and the response will show up in the bottom portion of the page. We've set the format of the response seen below to JSON so that we can more easily read it.
+
+![example-get](https://gist.githubusercontent.com/kamirdjanian/8ec0aa269188c43051914b1b6084a937/raw/d023b5da85d6eb5e9b118cd7a79556761a0aa1c6/example-get-request-response.png)
+
+In the previous example, we made a `GET` request so there wasn't a `body` to attach to the request. In this example, we are making a `POST` request, so we need to attach the information that we want to `POST` to our server to our request.
+
+To do this, we navigate to the section titled `Body` and then we are able to input some data. Since our app is communicating in JSON we can set the data type to `raw` and then specify that we are sending JSON.
+
+As before, the response will show up in the section below the request information.
+
+![example-post-body](https://gist.githubusercontent.com/kamirdjanian/8ec0aa269188c43051914b1b6084a937/raw/d023b5da85d6eb5e9b118cd7a79556761a0aa1c6/example-post-body.png)
 
 ## API Specification
 

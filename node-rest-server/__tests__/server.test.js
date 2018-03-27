@@ -44,43 +44,39 @@ describe('My RESTful API', () => {
     });
   });
 
-  // test('should respond to POST requests to /api/locations/cities with a 201 status code.', () => {
-  //   var options = {
-  //     method: 'POST',
-  //     body: {
-  //       name: 'Los Angeles',
-  //       country: 'United States of America',
-  //       population: 3976000,
-  //     },
-  //     json: true,
-  //     url: CITY_ENDPOINT,
-  //   };
-  //   request(options, function(error, response, body) {
-  //     expect(response.statusCode).toBe(201);
-  //   });
-  // });
+  test('should respond to POST requests to /api/locations/cities with a 201 status code.', () => {
+    var options = {
+      method: 'POST',
+      body: {
+        name: 'Los Angeles',
+        country: 'United States of America',
+        population: 3976000,
+      },
+      json: true,
+      uri: CITY_ENDPOINT,
+    };
+    request(options, function(error, response, body) {
+      expect(response.statusCode).toBe(201);
+    });
+  });
 
-  // test('should respond to POST requests to /api/locations/cities with the city object that was created.', () => {
-  //   var options = {
-  //     method: 'POST',
-  //     body: {
-  //       name: 'Los Angeles',
-  //       country: 'United States of America',
-  //       population: 3976000,
-  //     },
-  //     json: true,
-  //     url: CITY_ENDPOINT,
-  //   };
-  //   request(options, function(error, response, body) {
-  //     var city = {
-  //       id: 2,
-  //       name: 'Los Angeles',
-  //       country: 'United States of America',
-  //       population: 3976000,
-  //     };
-  //     expect(body).toEqual(city);
-  //   });
-  // });
+  test('should respond to POST requests to /api/locations/cities with the city object that was created.', () => {
+    var options = {
+      method: 'POST',
+      body: {
+        name: 'Berlin',
+        country: 'Germany',
+        population: 3500000,
+      },
+      json: true,
+      uri: CITY_ENDPOINT,
+    };
+    request(options, function(error, response, body) {
+      expect(body.name).toBe('Berlin');
+      expect(body.country).toBe('Germany');
+      expect(body.population).toBe(3500000);
+    });
+  });
 
   // test('should respond to PUT requests to /api/locations/cities with a 200 status code.', () => {});
   // test('should respond to PUT requests to /api/locations/cities with the city object that was updated.', () => {});
