@@ -96,7 +96,7 @@ Example Response
 
 As shown above, each city object must contain the following properties:
 
-* id
+* id (generated server-side)
 * name
 * country
 * population
@@ -132,7 +132,7 @@ Example Response
 
 As shown above, each restaurant object must contain the following properties:
 
-* id
+* id (generated server-side)
 * name
 * city
 * price_level
