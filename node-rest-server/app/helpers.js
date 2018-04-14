@@ -1,5 +1,22 @@
+var _ = require('lodash');
+
 var headers = {
   'Content-Type': 'application/json',
+};
+
+var requiredRestaurantProperties = new Set([
+  'name',
+  'city',
+  'price_level',
+  'type_of_food',
+  'rating',
+]);
+
+var checkRestaurantSubmission = function(restaurant) {
+  var properties = new Set(Object.keys(restaurant));
+  return _.every(requiredRestaurantProperties, function(property) {
+    return properties.has(property);
+  });
 };
 
 var sendResponse = function(response, data, statusCode = 200) {
@@ -32,4 +49,5 @@ module.exports = {
   sendResponse: sendResponse,
   collectData: collectData,
   createActionHandler: createActionHandler,
+  checkRestaurantSubmission: checkRestaurantSubmission,
 };

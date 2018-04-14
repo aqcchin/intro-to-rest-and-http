@@ -10,6 +10,7 @@ var cityActions = {
   GET: function(request, response) {
     helpers.sendResponse(response, { data: cities });
   },
+
   POST: function(request, response) {
     helpers.collectData(request, function(city) {
       cityCount += 1;
@@ -24,12 +25,23 @@ var restaurantActions = {
   GET: function(request, response) {
     helpers.sendResponse(response, { data: restaurants });
   },
+
   POST: function(request, response) {
     helpers.collectData(request, function(restaurant) {
+      // var isValidRequest = helpers.checkRestaurantSubmission(restaurant);
+      // console.log(isValidRequest);
+      // if (isValidRequest) {
       restaurantCount += 1;
       restaurant.id = restaurantCount;
       restaurants.push(restaurant);
       helpers.sendResponse(response, restaurant, 201);
+      // } else {
+      //   helpers.sendResponse(
+      //     response,
+      //     'Bad Request: Submitted restaurant information is incomplete.',
+      //     400,
+      //   );
+      // }
     });
   },
 };
