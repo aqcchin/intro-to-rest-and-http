@@ -28,20 +28,20 @@ var restaurantActions = {
 
   POST: function(request, response) {
     helpers.collectData(request, function(restaurant) {
-      // var isValidRequest = helpers.checkRestaurantSubmission(restaurant);
-      // console.log(isValidRequest);
-      // if (isValidRequest) {
-      restaurantCount += 1;
-      restaurant.id = restaurantCount;
-      restaurants.push(restaurant);
-      helpers.sendResponse(response, restaurant, 201);
-      // } else {
-      //   helpers.sendResponse(
-      //     response,
-      //     'Bad Request: Submitted restaurant information is incomplete.',
-      //     400,
-      //   );
-      // }
+      var isValidRequest = helpers.checkRestaurantSubmission(restaurant);
+      console.log(isValidRequest);
+      if (isValidRequest) {
+        restaurantCount += 1;
+        restaurant.id = restaurantCount;
+        restaurants.push(restaurant);
+        helpers.sendResponse(response, restaurant, 201);
+      } else {
+        helpers.sendResponse(
+          response,
+          'Bad Request: Submitted restaurant information is incomplete.',
+          400,
+        );
+      }
     });
   },
 };

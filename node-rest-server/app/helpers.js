@@ -1,20 +1,18 @@
-var _ = require('lodash');
-
 var headers = {
   'Content-Type': 'application/json',
 };
 
-var requiredRestaurantProperties = new Set([
+var requiredRestaurantProperties = [
   'name',
   'city',
   'price_level',
   'type_of_food',
   'rating',
-]);
+];
 
 var checkRestaurantSubmission = function(restaurant) {
   var properties = new Set(Object.keys(restaurant));
-  return _.every(requiredRestaurantProperties, function(property) {
+  return requiredRestaurantProperties.every(function(property) {
     return properties.has(property);
   });
 };
